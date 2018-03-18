@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Notebook</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/marked"></script>
+    <div id="notebook">
+        <aside class="side-bar">
+            <div class="toolbar">
+                <button @click="addNote" :title="addButtonTitle"><i class="material-icons">add</i> Add note</button>
+            </div>
+            <div class="notes">
+                <div class="note" v-for="note of notes">
+                    {{ note.title }}
+                </div>
+            </div>
+        </aside>
+        <section class="main">
+            <textarea v-model="content"></textarea>
+        </section>
+        <aside class="preview" v-html="notePreview"></aside>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
